@@ -21,7 +21,7 @@ function help() {
     echo ""
 }
 
-require_env MACUP_BACKUP_PATH || help && exit 1
+require_env MACUP_BACKUP_PATH || (help && exit 1)
 
 subcommand=$1
 case $subcommand in
