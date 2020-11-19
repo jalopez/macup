@@ -16,8 +16,8 @@ echo "- Installing asdf"
 brew install asdf
 
 echo "- Installing basic apps"
+brew install clintmod/formulas/macprefs
 brew cask install dropbox iterm2-beta
-
 
 echo ".... STEP 1 FINISHED ...."
 

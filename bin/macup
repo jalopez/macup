@@ -14,4 +14,4 @@ MACPREFS_BACKUP_DIR="$BACKUP_TARGET/macprefs" macprefs backup
 rm -rf $BACKUP_TARGET/macprefs/dotfiles/*
 
 echo ".... FINISHED ...."
-echo "Remember to save your iTerm preferences"
+echo "(Remember to save your iTerm preferences)"
