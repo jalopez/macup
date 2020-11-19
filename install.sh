@@ -7,4 +7,6 @@ if [[ ":${PATH}:" != *":~/.macup/bin:"* ]]; then
   echo 'export PATH=$PATH:~/.macup/bin' >> .zshrc
 fi
 
-echo "Successfully installed macup. To start backing up, run macup in your console"
+echo "Successfully installed macup. To start backing up, open a new session and run"
+echo "- macup for backing up"
+echo "- macup-restore for restoring a backup"
