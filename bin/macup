@@ -1,17 +1,40 @@
-#/bin/bash
+#!/bin/bash
+# set -o xtrace # Uncomment to debug
+DIR=$(dirname "$0")
 
-echo ".....MACUP backup starting....."
+source "$DIR/../lib/functions.sh"
+source "$DIR/../lib/cmd/backup.sh"
+source "$DIR/../lib/cmd/update.sh"
+source "$DIR/../lib/cmd/restore.sh"
 
-BACKUP_TARGET=${MACUP_HOME:-"$HOME/Dropbox/dotfiles/macup"}
+prog_name=$(basename $0)
 
-echo "Saving files into $BACKUP_TARGET"
+function help() {
+    echo "Usage: $prog_name <subcommand> [options]"
+    echo "Subcommands:"
+    echo "    backup   Create or update backup"
+    echo "    restore  Restore a backup"
+    echo "    update   Update macup scripts"
+    echo ""
+    echo "For help with each subcommand run:"
+    echo "$prog_name <subcommand> -h|--help"
+    echo ""
+}
 
-echo "- Saving Brewconfig"
-(cd "$BACKUP_TARGET" && brew bundle dump -f)
+require_env MACUP_BACKUP_PATH || help && exit 1
 
-echo "- Saving mac config"
-MACPREFS_BACKUP_DIR="$BACKUP_TARGET/macprefs" macprefs backup
-rm -rf $BACKUP_TARGET/macprefs/dotfiles/*
-
-echo ".... FINISHED ...."
-echo "(Remember to save your iTerm preferences)"
+subcommand=$1
+case $subcommand in
+    "" | "-h" | "--help")
+        help
+        ;;
+    *)
+        shift
+        cmd_${subcommand} $@
+        if [[ $? == 127 ]]; then
+            echo "Error: '$subcommand' is not a known subcommand." >&2
+            echo "       Run '$prog_name --help' for a list of known subcommands." >&2
+            exit 1
+        fi
+        ;;
+esac
