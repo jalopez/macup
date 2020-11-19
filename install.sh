@@ -15,9 +15,13 @@ else
   fi
 fi
 
-if [ "unset" == "${!MACUP_BACKUP_PATH:-unset}" ]; then
+set -o nounset
+
+BACKUP_PATH=${MACUP_BACKUP_PATH:-}
+
+if [[ -z $BACKUP_PATH ]]; then
   echo "Setting your backup path to ~/Dropbox/dotfiles/macup"
-  echo 'You can modify this config by changing $MACUP_BACKUP_PATH env variable'
+  echo 'You can modify this config by changing MACUP_BACKUP_PATH env variable'
   echo 'export MACUP_BACKUP_PATH=~/Dropbox/dotfiles/macup' >> .zshrc
 fi
 
