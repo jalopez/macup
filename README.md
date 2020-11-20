@@ -4,7 +4,7 @@ Mac backup and restore tool
 
 ## Install
 
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jalopez/macup/main/install.sh; source ~/.macup/configure.sh)"`
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jalopez/macup/main/install.sh && source ~/.macup/configure.sh)"`
 
 ## Backup
 

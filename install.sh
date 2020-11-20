@@ -8,8 +8,8 @@ else
   echo "Successfully installed macup."
 
   if [[ ":${PATH}:" != *"$HOME/.macup/bin:"* ]]; then
-    echo 'source ~/.macup/configure.sh' >> ~/.zshrc
-    source ~/.macup/configure.sh
+    echo 'test -e $HOME/.macup/configure.sh && . $HOME/.macup/configure.sh' >> ~/.zshrc
+    . ~/.macup/configure.sh
   fi
 fi
 
