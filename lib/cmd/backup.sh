@@ -1,9 +1,10 @@
 #!/bin/bash
 
-function sub_backup() {
+function cmd_backup() {
+  require_macup_configured
   print_header
 
-  echo ". Backup starting ."
+   echo "--- Running backup ---"
   echo "Saving files into $MACUP_BACKUP_PATH"
 
   echo "1. brew apps"

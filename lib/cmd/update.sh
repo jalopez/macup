@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function sub_update() {
+function cmd_update() {
   print_header
   echo ". Updating macup scripts ."
 
