@@ -5,12 +5,12 @@ if [[ -d "$HOME/.macup" ]]; then
 else
   git clone git@github.com:jalopez/macup.git ~/.macup
 
-  echo "Successfully installed macup."
-
   if [[ ":${PATH}:" != *"$HOME/.macup/bin:"* ]]; then
     echo 'test -e $HOME/.macup/configure.sh && . $HOME/.macup/configure.sh' >> ~/.zshrc
     . ~/.macup/configure.sh
   fi
+
+   echo "Successfully installed macup."
 fi
 
 echo "Your backup path is set to ~/Dropbox/dotfiles/macup"
