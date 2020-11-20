@@ -6,6 +6,4 @@ function cmd_update() {
 
   cd ~/.macup
   git update
-
-  echo "OK"
 }

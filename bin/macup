@@ -17,7 +17,6 @@ function help() {
     echo "    backup   Create or update backup"
     echo "    restore  Restore a backup"
     echo "    update   Update macup scripts"
-    echo ""
 }
 
 require_env MACUP_BACKUP_PATH || (help && exit 1)
