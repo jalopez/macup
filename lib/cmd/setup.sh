@@ -25,5 +25,5 @@ function cmd_setup {
   touch ~/.macup/.depsinstalled
 
   echo "macup requirements successfully installed"
-  require_backup_folder || echo "You can start backuping or restoring now"
+  require_backup_folder && echo "You can start backuping or restoring now"
 }

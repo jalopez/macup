@@ -42,5 +42,4 @@ require_backup_folder() {
     echo 'Please configure it or point $MACUP_BACKUP_PATH to a valid folder'
     return 1
   fi
-  return 0
 }
