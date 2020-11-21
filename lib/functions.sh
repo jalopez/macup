@@ -12,17 +12,13 @@ require_env() {
 require_command() {
   local command="$1"
 
-  command -v "${command}" >/dev/null 2>&1 && echo "${command} already present, skipping" || exit 1
+  command -v "${command}" >/dev/null 2>&1 && echo "${command} already present, skipping"
 }
 
 require_app() {
   local app="$1"
 
-  if [[ -d "/Applications/${app}.app" ]]; then
-    echo "${app} already present, skipping"
-  else
-    exit 1
-  fi
+  [[ -d "/Applications/${app}.app" ]] && echo "${app} already present, skipping"
 }
 
 print_header() {
@@ -37,4 +33,14 @@ require_macup_configured() {
     echo "please run 'macup setup' before running this command"
     exit 1
   fi
+}
+
+require_backup_folder() {
+  if [[ ! -d $MACUP_BACKUP_PATH ]]; then
+    echo "It seems that your backup folder $MACUP_BACKUP_PATH doesn't exist"
+    echo "Do you have dropbox already configured?"
+    echo 'Please configure it or point $MACUP_BACKUP_PATH to a valid folder'
+    return 1
+  fi
+  return 0
 }

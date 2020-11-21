@@ -3,7 +3,7 @@ if [[ -d "$HOME/.macup" ]]; then
   echo "Mac up already installed. Updating it"
   macup update
 else
-  git clone git@github.com:jalopez/macup.git ~/.macup
+  git clone https://github.com/jalopez/macup.git ~/.macup
 
   if [[ ":${PATH}:" != *"$HOME/.macup/bin:"* ]]; then
     echo 'test -e $HOME/.macup/configure.sh && . $HOME/.macup/configure.sh' >> ~/.zshrc
