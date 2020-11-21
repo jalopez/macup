@@ -5,19 +5,33 @@ function cmd_setup {
   echo "--- Installing requirements ---"
 
   echo "1. brew"
-  require_command "brew" || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  if ! require_command "brew"; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  fi
 
   echo "2. volta / node"
-  require_command "volta" || ((curl https://get.volta.sh | bash) && export PATH=$PATH:~/.volta/bin && volta install node)
+  if ! require_command "volta"; then
+    curl https://get.volta.sh | bash
+    ~/.volta/bin/volta install node
+  fi
 
   echo "3. dotsync"
-  require_command "dotsync" || volta install dotsync
+  if ! require_command "dotsync"; then
+    ~/.volta/bin/volta install dotsync
+  fi
 
   echo "4. macprefs"
-  require_command "macprefs" || brew install clintmod/formulas/macprefs
+  if ! require_command "macprefs2"; then
+    /usr/local/bin/brew install clintmod/formulas/macprefs
+    ## published version doesnt work with python 3, bring the latest one
+    rm -rf /usr/local/Cellar/macprefs/1.0.26/bin/*
+    git clone https://github.com/clintmod/macprefs.git /usr/local/Cellar/macprefs/1.0.26/bin
+  fi
 
   echo "5. Dropbox"
-  require_app "Dropbox" || brew cask install dropbox
+  if ! require_app "Dropbox"; then
+    /usr/local/bin/brew cask install dropbox
+  fi
 
   touch ~/.macup/.depsinstalled
 
