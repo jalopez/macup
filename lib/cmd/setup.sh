@@ -21,7 +21,7 @@ function cmd_setup {
   fi
 
   echo "4. macprefs"
-  if ! require_command "macprefs2"; then
+  if ! require_command "macprefs"; then
     /usr/local/bin/brew install clintmod/formulas/macprefs
     ## published version doesnt work with python 3, bring the latest one
     rm -rf /usr/local/Cellar/macprefs/1.0.26/bin/*
