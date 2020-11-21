@@ -12,5 +12,8 @@ function cmd_backup() {
 
   echo "2. mac user preferences"
   MACPREFS_BACKUP_DIR="$MACUP_BACKUP_PATH/macprefs" macprefs backup
+
+  # Removing files handled by dotsync
   rm -rf $MACUP_BACKUP_PATH/macprefs/dotfiles/*
+  rm -rf $MACUP_BACKUP_PATH/macprefs/ssh/*
 }

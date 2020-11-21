@@ -17,5 +17,8 @@ function cmd_restore {
   echo "3. dotfiles"
   (cd ~ && dotsync)
 
+  echo "4. custom postinstall script"
+  [[ -f  $MACUP_BACKUP_PATH/postinstall.sh ]] && bash $MACUP_BACKUP_PATH/postinstall.sh
+
   echo "Restore successfully done. Enjoy!"
 }
