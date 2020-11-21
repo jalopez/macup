@@ -1,11 +1,11 @@
-#/bin/bash
+#/bin/zsh
 
 function cmd_setup {
   print_header
   echo "--- Installing requirements ---"
 
   echo "1. brew"
-  require_command "brew" || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  require_command "brew" || /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
   echo "2. volta / node"
   require_command "volta" || ((curl https://get.volta.sh | bash) && export PATH=$PATH:~/.volta/bin && volta install node)

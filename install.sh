@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 if [[ -d "$HOME/.macup" ]]; then
   echo "Mac up already installed. Updating it"
   macup update

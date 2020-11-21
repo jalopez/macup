@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 if [[ ":${PATH}:" != *"$HOME/.macup/bin:"* ]]; then
   export PATH=$PATH:~/.macup/bin

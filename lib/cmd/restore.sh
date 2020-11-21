@@ -1,4 +1,4 @@
-#/bin/bash
+#/bin/zsh
 
 function cmd_restore {
   require_macup_configured
@@ -18,7 +18,7 @@ function cmd_restore {
   (cd ~ && dotsync)
 
   echo "4. custom postinstall script"
-  [[ -f  $MACUP_BACKUP_PATH/postinstall.sh ]] && bash $MACUP_BACKUP_PATH/postinstall.sh
+  [[ -f  $MACUP_BACKUP_PATH/postinstall.sh ]] && zsh $MACUP_BACKUP_PATH/postinstall.sh
 
   echo "Restore successfully done. Enjoy!"
 }

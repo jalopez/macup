@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # set -o xtrace # Uncomment to debug
 DIR=$(dirname "$0")
 
