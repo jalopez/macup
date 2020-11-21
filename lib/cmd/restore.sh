@@ -9,7 +9,7 @@ function cmd_restore {
   echo "Reading files from $MACUP_BACKUP_PATH"
 
   echo "1. brew apps"
-  (cd "$MACUP_BACKUP_PATH" && brew bundle)
+  (cd "$MACUP_BACKUP_PATH" && brew bundle -v)
 
   echo "2. mac user preferences"
   MACPREFS_BACKUP_DIR="$MACUP_BACKUP_PATH/macprefs" macprefs restore
