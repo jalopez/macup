@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 function cmd_update() {
   print_header

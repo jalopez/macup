@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 function cmd_backup() {
   require_macup_configured

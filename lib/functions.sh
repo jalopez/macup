@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 require_env() {
   local env_var_name="$1"

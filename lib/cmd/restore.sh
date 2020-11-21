@@ -1,4 +1,4 @@
-#/bin/zsh
+#/bin/bash
 
 function cmd_restore {
   require_macup_configured
