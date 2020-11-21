@@ -7,19 +7,16 @@ function cmd_setup {
   echo "1. brew"
   require_command "brew" || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-  echo "2. volta"
-  require_command "volta" || curl https://get.volta.sh | bash
+  echo "2. volta / node"
+  require_command "volta" || ((curl https://get.volta.sh | bash) && export PATH=$PATH:~/.volta/bin && volta install node)
 
-  echo "3. node"
-  require_command "node" || volta install node
-
-  echo "4. dotsync"
+  echo "3. dotsync"
   require_command "dotsync" || volta install dotsync
 
-  echo "5. macprefs"
+  echo "4. macprefs"
   require_command "macprefs" || brew install clintmod/formulas/macprefs
 
-  echo "6. Dropbox"
+  echo "5. Dropbox"
   require_app "Dropbox" || brew cask install dropbox
 
   touch ~/.macup/.depsinstalled
