@@ -5,5 +5,5 @@ function cmd_update() {
   echo ". Updating macup scripts ."
 
   cd ~/.macup
-  git update
+  git pull origin main
 }
