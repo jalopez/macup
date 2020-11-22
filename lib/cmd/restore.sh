@@ -5,20 +5,21 @@ function cmd_restore {
   require_backup_folder || exit 1
   print_header
 
-  echo "--- Restoring backup ---"
-  echo "Reading files from $MACUP_BACKUP_PATH"
+  lightblue "--- Restoring backup ---"
+  echo -n "Reading files from "
+  green "$MACUP_BACKUP_PATH"
 
-  echo "1. brew apps"
+  lightblue "1. brew apps"
   (cd "$MACUP_BACKUP_PATH" && brew bundle -v)
 
-  echo "2. mac user preferences"
+  lightblue "2. mac user preferences"
   MACPREFS_BACKUP_DIR="$MACUP_BACKUP_PATH/macprefs" macprefs restore
 
-  echo "3. dotfiles"
+  lightblue "3. dotfiles"
   (cd ~ && dotsync)
 
-  echo "4. custom postinstall script"
+  lightblue "4. custom postinstall script"
   [[ -f  $MACUP_BACKUP_PATH/postinstall.sh ]] && zsh $MACUP_BACKUP_PATH/postinstall.sh
 
-  echo "Restore successfully done. Enjoy!"
+  green "Restore successfully done. Enjoy!"
 }

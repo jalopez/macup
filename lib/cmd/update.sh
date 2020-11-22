@@ -2,7 +2,7 @@
 
 function cmd_update() {
   print_header
-  echo ". Updating macup scripts ."
+  lightblue ". Updating macup scripts ."
 
   cd ~/.macup
   git pull origin main

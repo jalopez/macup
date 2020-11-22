@@ -4,13 +4,14 @@ function cmd_backup() {
   require_macup_configured
   print_header
 
-  echo "--- Running backup ---"
-  echo "Saving files into $MACUP_BACKUP_PATH"
+  lightblue "--- Running backup ---"
+  echo -n "Saving files into "
+  green "$MACUP_BACKUP_PATH"
 
-  echo "1. brew apps"
+  lightblue "1. brew apps"
   (cd "$MACUP_BACKUP_PATH" && brew bundle dump -f)
 
-  echo "2. mac user preferences"
+  lightblue "2. mac user preferences"
   MACPREFS_BACKUP_DIR="$MACUP_BACKUP_PATH/macprefs" macprefs backup
 
   # Removing files handled by dotsync

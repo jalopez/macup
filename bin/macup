@@ -2,6 +2,7 @@
 # set -o xtrace # Uncomment to debug
 DIR=$(dirname "$0")
 
+source "$DIR/../lib/colors.sh"
 source "$DIR/../lib/functions.sh"
 source "$DIR/../lib/cmd/backup.sh"
 source "$DIR/../lib/cmd/update.sh"
