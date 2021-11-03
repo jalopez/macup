@@ -16,10 +16,10 @@ function cmd_restore {
     MACPREFS_BACKUP_DIR="$MACUP_BACKUP_PATH/macprefs" macprefs restore
     
     lightblue "3. dotfiles"
-    (cd ~ && dotsync)
+    (cd ~ && dotsync -f)
     
     lightblue "4. custom postinstall script"
-    [[ -f  $MACUP_BACKUP_PATH/postinstall.sh ]] && zsh $MACUP_BACKUP_PATH/postinstall.sh
+    [[ -f  $MACUP_BACKUP_PATH/postinstall.sh ]] && zsh "$MACUP_BACKUP_PATH/postinstall.sh"
     
     green "Restore successfully done. Enjoy!"
 }
