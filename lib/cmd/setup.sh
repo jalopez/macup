@@ -20,13 +20,13 @@ function cmd_setup {
         ~/.volta/bin/volta install dotsync
     fi
     
-    lightblue "4. macprefs"
-    if ! require_command "macprefs"; then
-        /usr/local/bin/brew install clintmod/formulas/macprefs
-        ## published version doesnt work with python 3, bring the latest one
-        rm -rf /usr/local/Cellar/macprefs/1.0.26/bin/*
-        git clone https://github.com/clintmod/macprefs.git /usr/local/Cellar/macprefs/1.0.26/bin
-    fi
+    # lightblue "4. macprefs"
+    # if ! require_command "macprefs"; then
+    #     /usr/local/bin/brew install clintmod/formulas/macprefs
+    #     ## published version doesnt work with python 3, bring the latest one
+    #     rm -rf /usr/local/Cellar/macprefs/1.0.26/bin/*
+    #     git clone https://github.com/clintmod/macprefs.git /usr/local/Cellar/macprefs/1.0.26/bin
+    # fi
     
     lightblue "5. Dropbox"
     if ! require_app "Dropbox"; then

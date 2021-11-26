@@ -12,8 +12,8 @@ function cmd_restore {
     lightblue "1. brew apps"
     (cd "$MACUP_BACKUP_PATH" && brew bundle -v)
     
-    lightblue "2. mac user preferences"
-    MACPREFS_BACKUP_DIR="$MACUP_BACKUP_PATH/macprefs" macprefs restore
+    # lightblue "2. mac user preferences"
+    # MACPREFS_BACKUP_DIR="$MACUP_BACKUP_PATH/macprefs" macprefs restore
     
     lightblue "3. dotfiles"
     (cd ~ && dotsync -f)
