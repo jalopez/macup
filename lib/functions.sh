@@ -38,7 +38,15 @@ require_macup_configured() {
 require_backup_folder() {
   if [[ ! -d $MACUP_BACKUP_PATH ]]; then
     red "It seems that your backup folder $MACUP_BACKUP_PATH doesn't exist"
-    red 'Please configure it or point $MACUP_BACKUP_PATH to a valid folder'
+    red "Please configure it or point \$MACUP_BACKUP_PATH to a valid folder"
+    return 1
+  fi
+}
+
+require_dotfiles_folder() {
+  if [[ ! -d $DOTFILES ]]; then
+    red "It seems that your dotfiles folder $DOTFILES doesn't exist"
+    red "Please configure it or point \$DOTFILES to a valid folder"
     return 1
   fi
 }

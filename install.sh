@@ -123,6 +123,7 @@ else
         cat >>"$CONFIGURE_PATH" <<EOF
 if [[ -z "\$MACUP_BACKUP_PATH" ]]; then
   export MACUP_BACKUP_PATH=$MACUP_BACKUP_PATH
+  export DOTFILES=$MACUP_BACKUP_PATH/dotfiles
 fi
 EOF
     fi
