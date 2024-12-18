@@ -14,6 +14,16 @@ chomp() {
     printf "%s" "${1/"$'\n'"/}"
 }
 
+shell_join() {
+    local arg
+    printf "%s" "$1"
+    shift
+    for arg in "$@"; do
+        printf " "
+        printf "%s" "${arg// /\ }"
+    done
+}
+
 execute() {
     if ! "$@"; then
         abort "$(printf "Failed during: %s" "$(shell_join "$@")")"
