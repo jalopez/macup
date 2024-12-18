@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # set -o xtrace # Uncomment to debug
 DIR=$(dirname "$0")
 
@@ -24,16 +25,16 @@ require_env MACUP_BACKUP_PATH || (help && exit 1)
 
 subcommand=$1
 case $subcommand in
-    "" | "-h" | "--help")
-        help
-        ;;
-    *)
-        shift
-        cmd_${subcommand} $@
-        if [[ $? == 127 ]]; then
-            echo "Error: '$subcommand' is not a known subcommand." >&2
-            echo "       Run '$prog_name --help' for a list of known subcommands." >&2
-            exit 1
-        fi
-        ;;
+"" | "-h" | "--help")
+    help
+    ;;
+*)
+    shift
+    "cmd_${subcommand}" "$@"
+    if [[ $? == 127 ]]; then
+        echo "Error: '$subcommand' is not a known subcommand." >&2
+        echo "       Run '$prog_name --help' for a list of known subcommands." >&2
+        exit 1
+    fi
+    ;;
 esac

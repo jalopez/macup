@@ -22,7 +22,7 @@ function cmd_setup {
 
     lightblue "4. macprefs"
     if ! require_command "macprefs"; then
-        /usr/local/bin/brew install sijanc147/formulas/macprefs
+        /opt/homebrew/bin/brew install sijanc147/formulas/macprefs
     fi
 
     touch ~/.macup/.depsinstalled
