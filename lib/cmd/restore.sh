@@ -11,10 +11,10 @@ function cmd_restore {
     green "$MACUP_BACKUP_PATH"
 
     lightblue "1. brew apps"
-    (cd "$MACUP_BACKUP_PATH" && brew bundle -v)
+    (cd "$MACUP_BACKUP_PATH" && /opt/homebrew/bin/brew bundle -v)
 
     lightblue "2. mac user preferences"
-    MACPREFS_BACKUP_DIR="$MACUP_BACKUP_PATH/macprefs" macprefs restore
+    MACPREFS_BACKUP_DIR="$MACUP_BACKUP_PATH/macprefs" /opt/homebrew/bin/macprefs restore
 
     lightblue "3. dotfiles"
     echo -n "Restoring dotfiles from..."
