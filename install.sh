@@ -87,7 +87,7 @@ install_git() {
         echo "The Xcode Command Line Tools will be installed."
         # This temporary file prompts the 'softwareupdate' utility to list the Command Line Tools
         clt_placeholder="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
-        execute_sudo "$TOUCH" "$clt_placeholder"
+        execute_sudo "${TOUCH[@]}" "${clt_placeholder}"
 
         clt_label_command="/usr/sbin/softwareupdate -l |
         grep -B 1 -E 'Command Line Tools' |
