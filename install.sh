@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Stolen miserably from brew installer
+TOUCH=("/usr/bin/touch")
+
 should_install_command_line_tools() {
     ! [[ -e "/Library/Developer/CommandLineTools/usr/bin/git" ]]
 }
