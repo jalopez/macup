@@ -6,7 +6,7 @@ function cmd_setup {
 
     lightblue "1. brew"
     if ! require_command "brew"; then
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
     lightblue "2. volta / node"

@@ -142,8 +142,6 @@ EOF
 
     if [[ ":${PATH}:" != *"$HOME/.macup/bin:"* ]]; then
         echo "test -e \$HOME/.macup/configure.sh && . \$HOME/.macup/configure.sh" >>~/.zshrc
-        # shellcheck disable=SC1090
-        . "$CONFIGURE_PATH"
     fi
 
     echo "Successfully installed macup."
@@ -152,6 +150,4 @@ fi
 echo "Your backup path is set to $MACUP_BACKUP_PATH"
 echo "You can modify this config by changing \$MACUP_BACKUP_PATH env variable"
 
-macup setup
-
-echo "Macup properly configured! run 'macup -h' to see options"
+echo "Please open a new tab and run 'macup setup' to finish the installation"
