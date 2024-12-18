@@ -7,6 +7,7 @@ function cmd_setup {
     lightblue "1. brew"
     if ! require_command "brew"; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        export PATH="/opt/homebrew/bin:$PATH" >>~/.zshrc
     fi
 
     lightblue "2. volta / node"
@@ -28,5 +29,5 @@ function cmd_setup {
     touch ~/.macup/.depsinstalled
 
     green "macup requirements successfully installed"
-    require_backup_folder && green "You can start backuping or restoring now"
+    require_backup_folder && green "You can start backuping or restoring now. Please open a new terminal window."
 }
